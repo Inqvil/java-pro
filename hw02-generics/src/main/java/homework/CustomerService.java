@@ -10,13 +10,15 @@ public class CustomerService {
 
     public Map.Entry<Customer, String> getSmallest() {
         Customer customer = customerStringNavigableMap.firstEntry().getKey();
-        return new AbstractMap.SimpleEntry<>(
-                new Customer
-                        (customer.getId(), customer.getName(), customer.getScores()),
+        try {
+            customer.getId();
+        }catch (NullPointerException nullPointerException){
+            return null;
+        }
+        return new AbstractMap.SimpleEntry<>(new Customer
+                (customer.getId(), customer.getName(), customer.getScores()),
                 customerStringNavigableMap.get(customer));
 
-        //Возможно, чтобы реализовать этот метод, потребуется посмотреть как Map.Entry сделан в jdk
-        //https://www.baeldung.com/java-map-entry
     }
 
     public Map.Entry<Customer, String> getNext(Customer customer) {
