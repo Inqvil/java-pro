@@ -2,6 +2,7 @@ package ru.otus;
 
 import com.google.common.collect.Lists;
 import java.util.List;
+import java.util.Map;
 
 public class HelloOtus {
     public static void main(String[] args) {
@@ -10,4 +11,6 @@ public class HelloOtus {
         System.out.println(reversedNames);
 
     }
+
+
 }
